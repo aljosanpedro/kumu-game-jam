@@ -2,6 +2,7 @@ from os import system
 
 
 class Control:
+    # Methods
     @staticmethod
     def enter_to_continue():
         while True:
