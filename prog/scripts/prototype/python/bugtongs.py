@@ -1,4 +1,6 @@
 from random     import choice
+
+from control    import Control
 from bugtong    import Bugtong
 
 
@@ -29,7 +31,7 @@ class Bugtongs:
     def __init__(self):
         for raws in [Bugtongs.real_raws, Bugtongs.fake_raws]:
             Bugtongs.load_raws(raws)
-        print(f"Bugtong lists loaded (real & fake).\n")
+        Control.enter_to_continue()
         
     
     @classmethod
@@ -59,10 +61,5 @@ class Bugtongs:
         enemy = choice(reals)
         
         fake = choice(cls.fakes)
-        
-        print(f"---Bugtongs Drawn---\n")
-        print(f"Player: {player.first} | {player.second} | {player.answer}\n")
-        print(f"Enemy: {enemy.first} | {enemy.second} | {enemy.answer}\n")
-        print(f"Fake: {fake.first} | {fake.second} | {fake.answer}\n")
         
         return [player, enemy, fake]
