@@ -32,6 +32,6 @@ class Phase:
 
     @staticmethod
     def print_action(action, phase):
-        Control.start(phase)
+        Control.print_phase(phase)
         print(f"{action.title()}!\n")
         

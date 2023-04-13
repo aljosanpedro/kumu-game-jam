@@ -20,13 +20,24 @@ class Control:
         system("cls")
      
         
-    # Phases
+    # Flow
     @staticmethod
-    def start(phase):
+    def print_phase(phase):
         Control.clear_screen()
-        print(f"\n---{phase.upper()} START!---\n")
+        print(f"\n---{phase.upper()}---\n")
     
     @staticmethod
     def end():
         print(f"---PHASE END---\n")
+    
+    @staticmethod
+    def is_battle_done(player, enemy) -> str:
+        winner = ""
+        
+        if player.health == 0:
+            winner = player.name 
+        elif enemy.health == 0:
+            winner = enemy.name
+        
+        return winner
     

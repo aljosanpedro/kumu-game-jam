@@ -39,5 +39,3 @@ class Card:
             
         print(f"[Cards face: {print_face}]\n")
         
-        Control.enter_to_continue()
-        
