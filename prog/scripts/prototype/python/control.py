@@ -31,7 +31,8 @@ class Control:
         print(f"---PHASE END---\n")
     
     @staticmethod
-    def is_battle_done(player, enemy) -> str:
+    def is_battle_done(characters) -> str:
+        player, enemy = characters
         winner = ""
         
         if player.health == 0:

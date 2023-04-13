@@ -1,13 +1,12 @@
 # IMPORTS
 # Built-in
-from time        import sleep
+from time       import sleep
 
 # Files
-from control     import Control
-from card        import Card
+from character  import Character
 
 # Parent Class
-from .phase      import Phase
+from .phase     import Phase
 
 
 # CLASS
@@ -48,11 +47,11 @@ Action: """
     def input_to_action(input) -> str:
         action = None
         
-        if input == 'd'     : action = "attacked"
+        if   input == 'd'   : action = "attacked"
         elif input == 'a'   : action = "defended"
         elif input == ''    : action = "stood"
         elif input == "time": action = "time"
         else                : action = "invalid"
-            
+                      
         return action
     
