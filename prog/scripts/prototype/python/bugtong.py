@@ -1,10 +1,14 @@
-from random     import choice
+# Imports
+from random     import seed, choice
 
 from control    import Control
 
 
+# Class
 class Bugtong:
     # Attributes
+    reals, fakes = [], []
+    
     real_raws = [
         ["Kaaway ni bantay",                "May siyam na buhay",                   "Kuring"     ],
         ["Bangkang naglayag na",            "Pilit nagsasagwan pabalik",            "Kasama"     ],
@@ -32,42 +36,46 @@ class Bugtong:
         ["Walang sagot sa tanong",          "Kung bakit ka mahalaga",               "Sila"       ],
     ]
     
-    reals, fakes = [], []
-    
     
     # Instances
-    def __init__(self, first, second, answer, is_real=True, is_on_floor=False):
+    def __init__(self, first, second, answer):
         self.first = first
         self.second = second
         self.answer = answer
-        self.is_real = is_real
-        self.is_on_floor = is_on_floor
         
     
     # Methods
     @classmethod
     def load_raws(cls):
+        
+        def classify(empty):
+            empty.append(cls(first, second, answer))
+            
         for raws in [cls.real_raws, cls.fake_raws]:
+            # Real/Fake Filter
             is_real = True
+            
             if raws == cls.fake_raws:
                 is_real = False
             
+            # Instancing
             for bugtong in raws: 
                 first, second, answer = bugtong
                 
-                if is_real:
-                    cls.reals.append(cls(first, second, answer, is_real))
-                else:
-                    cls.fakes.append(cls(first, second, answer, is_real))                
+                classify(cls.reals) if is_real else classify(cls.fakes)
+        
         Control.enter_to_continue()
-
+        
     @classmethod
-    def draw_bugtongs(cls):
-        # preserve original reals, use a modifiable one
-        # avoid duplicates between player & enemy by removing player's later
+    def draw_for_round(cls):
+        # Copy List
         reals = cls.reals 
         
+        # Draw
+        seed() # RNG
+        
         player = choice(reals)
+        # avoid duplicates between player & enemy by removing player's draw
         reals.remove(player)
         
         enemy = choice(reals)
@@ -75,3 +83,7 @@ class Bugtong:
         fake = choice(cls.fakes)
         
         return [player, enemy, fake]
+
+    @staticmethod
+    def draw_reading(bugtongs):
+        return choice(bugtongs)
