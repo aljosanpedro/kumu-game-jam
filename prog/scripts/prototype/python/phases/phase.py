@@ -18,7 +18,7 @@ class Phase:
         
     # Shared Methods
     @classmethod
-    def timer_input(cls, self):
+    def timer_input(cls, self) -> str:
         print(f"{self.time} seconds! [Counting down...]")
         
         try:

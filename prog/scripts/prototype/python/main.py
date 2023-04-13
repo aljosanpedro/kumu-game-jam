@@ -24,7 +24,7 @@ def battle_start():
     Bugtong.load_raws() # load real & fake bugtongs and their attributes
 
 
-def round_start():
+def round_start() -> list:
     Control.start("round")
     
     bugtongs = Bugtong.draw_for_round() # [player,enemy,fake]

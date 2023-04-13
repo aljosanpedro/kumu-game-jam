@@ -35,6 +35,7 @@ Action: """
         # Announcer
         print("The announcer reads:")
         
+        # Wait-Timer
         for _ in range(3):
             sleep(1)
             print("...")
@@ -44,7 +45,7 @@ Action: """
         print(f"\n{reading}\n")
     
     @staticmethod
-    def input_to_action(input):
+    def input_to_action(input) -> str:
         action = None
         
         if input == 'd'     : action = "attacked"
@@ -56,7 +57,7 @@ Action: """
         return action
     
     @staticmethod
-    def judge(bugtong, cards, action):
+    def judge(bugtong, cards, action) -> list:
         # Clarify bugtong halves
         second = bugtong.second
         player, enemy = cards[0].text, cards[1].text

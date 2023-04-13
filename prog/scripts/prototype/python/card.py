@@ -12,7 +12,7 @@ class Card:
     
     # Methods
     @classmethod
-    def load_from_bugtongs(cls, bugtongs):
+    def load_from_bugtongs(cls, bugtongs) -> list:
         player = cls(bugtongs[0].second)
         enemy = cls(bugtongs[1].second)
         

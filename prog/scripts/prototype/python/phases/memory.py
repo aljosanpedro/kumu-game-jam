@@ -24,7 +24,7 @@ Action: """
     
     # Unique Methods
     @staticmethod
-    def input_to_action(input):
+    def input_to_action(input) -> str:
         action = None
         
         if   input == 'g'   : action = "guide"

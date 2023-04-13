@@ -67,7 +67,7 @@ class Bugtong:
         Control.enter_to_continue()
         
     @classmethod
-    def draw_for_round(cls):
+    def draw_for_round(cls) -> list:
         # Copy List
         reals = cls.reals 
         
